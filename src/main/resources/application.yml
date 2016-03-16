@@ -1,0 +1,28 @@
+---
+spring:
+  profiles: in-memory
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+
+---
+spring:
+  profiles: mysql
+  jpa:
+    hibernate:
+      ddl-auto: create
+
+---
+spring:
+  profiles: postgres
+  jpa:
+    hibernate:
+      ddl-auto: create
+
+---
+spring:
+  profiles: oracle
+  jpa:
+    hibernate:
+      ddl-auto: create
+
