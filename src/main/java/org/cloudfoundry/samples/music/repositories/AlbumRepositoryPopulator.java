@@ -3,6 +3,7 @@ package org.cloudfoundry.samples.music.repositories;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.cloudfoundry.samples.music.domain.Album;
+import org.cloudfoundry.samples.music.domain.AlbumRepository;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanFactoryUtils;
 import org.springframework.context.ApplicationContext;

@@ -23,7 +23,7 @@ public class SpringApplicationContextInitializer implements ApplicationContextIn
     private static final Log logger = LogFactory.getLog(SpringApplicationContextInitializer.class);
 
     private static final Map<Class<? extends ServiceInfo>, String> serviceTypeToProfileName =
-            new HashMap<Class<? extends ServiceInfo>, String>();
+            new HashMap<>();
     private static final List<String> validLocalProfiles = Arrays.asList("mysql", "postgres", "mongodb", "redis");
 
     public static final String IN_MEMORY_PROFILE = "in-memory";
