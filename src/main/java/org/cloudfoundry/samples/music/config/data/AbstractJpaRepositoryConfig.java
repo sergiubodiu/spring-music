@@ -26,7 +26,7 @@ public abstract class AbstractJpaRepositoryConfig {
     protected abstract String getHibernateDialect();
 
     protected LocalContainerEntityManagerFactoryBean createEntityManagerFactoryBean(DataSource dataSource, String dialectClassName) {
-        Map<String, String> properties = new HashMap<String, String>();
+        Map<String, String> properties = new HashMap<>();
         properties.put(org.hibernate.cfg.Environment.HBM2DDL_AUTO, "update");
         properties.put(org.hibernate.cfg.Environment.DIALECT, dialectClassName);
         properties.put(org.hibernate.cfg.Environment.SHOW_SQL, "true");

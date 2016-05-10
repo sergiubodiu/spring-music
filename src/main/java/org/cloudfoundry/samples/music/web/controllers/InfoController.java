@@ -43,7 +43,7 @@ public class InfoController {
         if (cloud != null) {
             return cloud.getServiceInfos();
         } else {
-            return new ArrayList<ServiceInfo>();
+            return new ArrayList<>();
         }
     }
 
@@ -51,7 +51,7 @@ public class InfoController {
         if (cloud != null) {
             final List<ServiceInfo> serviceInfos = cloud.getServiceInfos();
 
-            List<String> names = new ArrayList<String>();
+            List<String> names = new ArrayList<>();
             for (ServiceInfo serviceInfo : serviceInfos) {
                 names.add(serviceInfo.getId());
             }

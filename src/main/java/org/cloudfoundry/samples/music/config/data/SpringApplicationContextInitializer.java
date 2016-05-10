@@ -1,4 +1,4 @@
-package org.cloudfoundry.samples.music.config;
+package org.cloudfoundry.samples.music.config.data;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -6,19 +6,17 @@ import org.springframework.cloud.Cloud;
 import org.springframework.cloud.CloudException;
 import org.springframework.cloud.CloudFactory;
 import org.springframework.cloud.service.ServiceInfo;
-import org.springframework.cloud.service.common.MongoServiceInfo;
-import org.springframework.cloud.service.common.MysqlServiceInfo;
-import org.springframework.cloud.service.common.OracleServiceInfo;
-import org.springframework.cloud.service.common.PostgresqlServiceInfo;
-import org.springframework.cloud.service.common.RedisServiceInfo;
+import org.springframework.cloud.service.common.*;
 import org.springframework.context.ApplicationContextInitializer;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.core.env.ConfigurableEnvironment;
+import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
-import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 
 import java.util.*;
 
-public class SpringApplicationContextInitializer implements ApplicationContextInitializer<AnnotationConfigWebApplicationContext> {
+@Component
+public class SpringApplicationContextInitializer implements ApplicationContextInitializer<ConfigurableApplicationContext> {
 
     private static final Log logger = LogFactory.getLog(SpringApplicationContextInitializer.class);
 
@@ -37,10 +35,10 @@ public class SpringApplicationContextInitializer implements ApplicationContextIn
     }
 
     @Override
-    public void initialize(AnnotationConfigWebApplicationContext applicationContext) {
+    public void initialize(ConfigurableApplicationContext context) {
         Cloud cloud = getCloud();
 
-        ConfigurableEnvironment appEnvironment = applicationContext.getEnvironment();
+        ConfigurableEnvironment appEnvironment = context.getEnvironment();
 
         String[] persistenceProfiles = getCloudProfile(cloud);
         if (persistenceProfiles == null) {
@@ -124,4 +122,5 @@ public class SpringApplicationContextInitializer implements ApplicationContextIn
         logger.info("Setting profile names: " + StringUtils.arrayToCommaDelimitedString(profileNames));
         return profileNames;
     }
+
 }
