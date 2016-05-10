@@ -1,4 +1,4 @@
-package org.cloudfoundry.samples.music.repositories;
+package org.cloudfoundry.samples.music.config.data;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;

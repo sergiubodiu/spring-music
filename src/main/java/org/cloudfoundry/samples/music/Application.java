@@ -10,14 +10,12 @@ import org.springframework.boot.context.web.SpringBootServletInitializer;
 import org.springframework.boot.orm.jpa.EntityScan;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 @EnableAutoConfiguration
 //@ComponentScan("org.cloudfoundry.samples.music")
 @EnableJpaRepositories("org.cloudfoundry.samples.music.repositories")
 @EntityScan("org.cloudfoundry.samples.music.domain")
 @ComponentScan(basePackageClasses = {AlbumController.class, AlbumRepository.class, LocalJpaRepositoryConfig.class})
-@EnableWebMvc
 public class Application extends SpringBootServletInitializer {
 
 	/**
@@ -27,10 +25,7 @@ public class Application extends SpringBootServletInitializer {
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
         return application.sources(Application.class);
     }
-	
-	/**
-	 * Spring-boot harness for running application standalone.
-	 */
+
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
 	}
